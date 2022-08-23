@@ -5,6 +5,10 @@
 
 const polybiusModule = (function () {
   // you can add any code you want within this function scope
+  // create alphabet array separated by spaces - alphaArray = "abcdefghijklmnopqrstuvwxyz".split("");
+   // create number array - numArray = [1, 2, 3, 4, 5,]
+
+   //use slice method to access 2 numbers multiple numbers in numArray if necessary
 
   function polybius(input, encode = true) {
     // your solution code here
