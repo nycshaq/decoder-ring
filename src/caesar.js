@@ -3,7 +3,7 @@
 // Only add code (helper methods, variables, etc.) within the scope
 // of the anonymous function on line 6
 
-const caesarModule = function () {
+const caesarModule = (function () {
   // you can add any code you want within this function scope
 
   //create caesar = " " variable to store results
@@ -51,12 +51,11 @@ const caesarModule = function () {
 
     //loop through alphabetArray
     for (let index = 0; index < input.length; index++) {
-      
       const currentChar = input[index]; //updated
-      
+
       //use indexOf and convert currentChar to lowercase
       let caesarCharIndex = alphabetArray.indexOf(currentChar.toLowerCase());
-      
+
       if (caesarCharIndex === -1) {
         results += currentChar;
         continue;
@@ -80,12 +79,10 @@ const caesarModule = function () {
         */
       } else {
         let newIndex = caesarCharIndex - shift;
-        if(newIndex < 0){
-          let newPosition = 26 - newIndex
+        if (newIndex < 0) {
+          let newPosition = 26 - newIndex;
           results += alphabetArray[newPosition];
-        }
-
-        else {
+        } else {
           results += alphabetArray[newIndex];
         }
 
@@ -101,18 +98,14 @@ const caesarModule = function () {
        take length of alphabet in example (26 - shift aka 3) this gives us 23 and that should be our letter
   
         */
-      
+      }
     }
-   
+    return results;
   }
-  return results
-}
 
-return {
- 
-  caesar,
-};
-};
-console.log(caesarModule().caesar("cat", -3))
+  return {
+    caesar,
+  };
+})();
+
 module.exports = { caesar: caesarModule.caesar };
-
