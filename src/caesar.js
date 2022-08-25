@@ -58,13 +58,16 @@ const caesarModule = (function () {
 
       if (caesarCharIndex === -1) {
         results += currentChar;
+        console.log("A" + currentChar + "A")
         continue;
       }
-
+      
       if (shift > 0) {
         let newIndex = caesarCharIndex + shift;
-        if (newIndex > 26) {
-          let newPosition = newIndex + shift - 26;
+        // console.log("newIndex", newIndex);
+        // break;
+        if (newIndex >= 26) {
+          let newPosition = newIndex - 26;
           results += alphabetArray[newPosition];
         } else {
           results += alphabetArray[newIndex];
@@ -77,14 +80,27 @@ const caesarModule = (function () {
         when out of bounds on right side wrap to A (when shift is positive)
         if newIndex + shift > 26 then index + shift - 26   
         */
+       
       } else {
-        let newIndex = caesarCharIndex - shift;
+        let newIndex = caesarCharIndex + shift;
+
+        
+        // console.log("currentChar", currentChar);
+        // console.log("caesarCharIndex", caesarCharIndex);
+        // console.log("newIndex", newIndex);
+
         if (newIndex < 0) {
           let newPosition = 26 - newIndex;
           results += alphabetArray[newPosition];
+          
+          // console.log("newPosition", newPosition);
+          // console.log("newChar", alphabetArray[newPosition]);
+
         } else {
           results += alphabetArray[newIndex];
         }
+        // console.log(results);
+       
 
         /* 
         cat shift = - 3
@@ -107,5 +123,14 @@ const caesarModule = (function () {
     caesar,
   };
 })();
+
+// console.log(caesarModule.caesar("thinkful", 3))
+// console.log(caesarModule.caesar("thinkful", -3))
+//console.log(caesarModule.caesar("wklqnixo", 3, false)) // thinkful
+console.log(caesarModule.caesar("This is a secret message!", 8)) //bpqa qa i amkzmb umaaiom!'
+// console.log(caesarModule.caesar("BPQA qa I amkzmb umaaiom!", 8, false))
+// console.log(caesarModule.caesar("Thinkful"))
+// console.log(caesarModule.caesar("Thinkful", 99))
+// console.log(caesarModule.caesar("Thinkful", 26))
 
 module.exports = { caesar: caesarModule.caesar };
