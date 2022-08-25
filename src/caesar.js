@@ -58,7 +58,7 @@ const caesarModule = (function () {
 
       if (caesarCharIndex === -1) {
         results += currentChar;
-        console.log("A" + currentChar + "A")
+        // console.log("A" + currentChar + "A")
         continue;
       }
       
@@ -127,7 +127,7 @@ const caesarModule = (function () {
 // console.log(caesarModule.caesar("thinkful", 3))
 // console.log(caesarModule.caesar("thinkful", -3))
 //console.log(caesarModule.caesar("wklqnixo", 3, false)) // thinkful
-console.log(caesarModule.caesar("This is a secret message!", 8)) //bpqa qa i amkzmb umaaiom!'
+// console.log(caesarModule.caesar("This is a secret message!", 8)) //bpqa qa i amkzmb umaaiom!'
 // console.log(caesarModule.caesar("BPQA qa I amkzmb umaaiom!", 8, false))
 // console.log(caesarModule.caesar("Thinkful"))
 // console.log(caesarModule.caesar("Thinkful", 99))
