@@ -6,8 +6,6 @@
 const caesarModule = (function () {
   // you can add any code you want within this function scope
 
-  //create caesar = " " variable to store results
-
   /* 
   [a, b, c, d, e, f, g, h, i, j, k,  l,  m,  n,  o,  p,  q,  r,  s,  t,  u,  v,  w,  x,  y,  z]
    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25
@@ -54,23 +52,24 @@ const caesarModule = (function () {
       const currentChar = input[index]; //updated
 
       //use indexOf and convert currentChar to lowercase
-      let caesarCharIndex = alphabetArray.indexOf(currentChar.toLowerCase());
+      let currentCharIndex = alphabetArray.indexOf(currentChar.toLowerCase());
 
-      if (caesarCharIndex === -1) {
+      if (currentCharIndex === -1) {
         results += currentChar;
         // console.log("A" + currentChar + "A")
         continue;
       }
       
       if (shift > 0) {
-        let newIndex = caesarCharIndex + shift;
+        let newCharIndex = currentCharIndex + shift;
         // console.log("newIndex", newIndex);
         // break;
-        if (newIndex >= 26) {
-          let newPosition = newIndex - 26;
+        if (newCharIndex >= 26) {
+          let newPosition = newCharIndex - 26;
+          console.log("newPosition", newPosition)
           results += alphabetArray[newPosition];
         } else {
-          results += alphabetArray[newIndex];
+          results += alphabetArray[newCharIndex];
         }
         /*
         shift to right when positive
@@ -82,22 +81,22 @@ const caesarModule = (function () {
         */
        
       } else {
-        let newIndex = caesarCharIndex + shift;
+        let newCharIndex = currentCharIndex + shift;
 
         
         // console.log("currentChar", currentChar);
         // console.log("caesarCharIndex", caesarCharIndex);
         // console.log("newIndex", newIndex);
 
-        if (newIndex < 0) {
-          let newPosition = 26 - newIndex;
+        if (newCharIndex < 0) {
+          let newPosition = 26 - newCharIndex;
           results += alphabetArray[newPosition];
           
           // console.log("newPosition", newPosition);
           // console.log("newChar", alphabetArray[newPosition]);
 
         } else {
-          results += alphabetArray[newIndex];
+          results += alphabetArray[newCharIndex];
         }
         // console.log(results);
        
