@@ -46,13 +46,14 @@ const caesarModule = (function () {
 
     //create array of each letter in alphabet separated by commas: alphabetArray
     let alphabetArray = "abcdefghijklmnopqrstuvwxyz".split(""); //updated
+    let newInput = input.toLowerCase.split("")
 
     //loop through alphabetArray
-    for (let index = 0; index < input.length; index++) {
-      const currentChar = input[index]; //updated
+    for (let index = 0; index < newInput.length; index++) {
+      const currentChar = newInput[index]; //updated
 
       //use indexOf and convert currentChar to lowercase
-      let currentCharIndex = alphabetArray.indexOf(currentChar.toLowerCase());
+      let currentCharIndex = alphabetArray.indexOf(currentChar.);
 
       if (currentCharIndex === -1) {
         results += currentChar;
