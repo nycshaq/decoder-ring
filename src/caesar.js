@@ -46,60 +46,61 @@ const caesarModule = (function () {
 
     //create array of each letter in alphabet separated by commas: alphabetArray
     let alphabetArray = "abcdefghijklmnopqrstuvwxyz".split(""); //updated
-    let newInput = input.toLowerCase.split("")
+    let newInput = input.toLowerCase().split("")
 
     //loop through alphabetArray
     for (let index = 0; index < newInput.length; index++) {
       const currentChar = newInput[index]; //updated
 
       //use indexOf and convert currentChar to lowercase
-      let currentCharIndex = alphabetArray.indexOf(currentChar.);
+      let currentCharIndex = alphabetArray.indexOf(currentChar);
 
       if (currentCharIndex === -1) {
         results += currentChar;
         // console.log("A" + currentChar + "A")
         continue;
       }
+       let rindex = (currentCharIndex+shift+26)%26;
+      results+=alphabetArray[rindex];
+//       if (shift > 0) {
+//         let newCharIndex = currentCharIndex + shift;
+//         // console.log("newIndex", newIndex);
+//         // break;
+//         if (newCharIndex >= 26) {
+//           let newPosition = newCharIndex % 26;
+//           console.log("newPosition", newPosition)
+//           results += alphabetArray[newPosition];
+//         } else {
+//           results += alphabetArray[newCharIndex];
+//         }
+//         /*
+//         shift to right when positive
+//         get idexOf letter from alphabetArray "in ex. c = 2, take index + shift"
+//         shift = 3, 2 + 3 = 5 = new index
       
-      if (shift > 0) {
-        let newCharIndex = currentCharIndex + shift;
-        // console.log("newIndex", newIndex);
-        // break;
-        if (newCharIndex >= 26) {
-          let newPosition = newCharIndex - 26;
-          console.log("newPosition", newPosition)
-          results += alphabetArray[newPosition];
-        } else {
-          results += alphabetArray[newCharIndex];
-        }
-        /*
-        shift to right when positive
-        get idexOf letter from alphabetArray "in ex. c = 2, take index + shift"
-        shift = 3, 2 + 3 = 5 = new index
-      
-        when out of bounds on right side wrap to A (when shift is positive)
-        if newIndex + shift > 26 then index + shift - 26   
-        */
+//         when out of bounds on right side wrap to A (when shift is positive)
+//         if newIndex + shift > 26 then index + shift - 26   
+//         */
        
-      } else {
-        let newCharIndex = currentCharIndex + shift;
+//       } else {
+//         let newCharIndex = currentCharIndex + shift;
 
         
-        // console.log("currentChar", currentChar);
-        // console.log("caesarCharIndex", caesarCharIndex);
-        // console.log("newIndex", newIndex);
+//         // console.log("currentChar", currentChar);
+//         // console.log("caesarCharIndex", caesarCharIndex);
+//         // console.log("newIndex", newIndex);
 
-        if (newCharIndex < 0) {
-          let newPosition = 26 - newCharIndex;
-          results += alphabetArray[newPosition];
+//         if (newCharIndex < 0) {
+//           let newPosition = 26 - newCharIndex;
+//           results += alphabetArray[newPosition];
           
-          // console.log("newPosition", newPosition);
-          // console.log("newChar", alphabetArray[newPosition]);
+//           // console.log("newPosition", newPosition);
+//           // console.log("newChar", alphabetArray[newPosition]);
 
-        } else {
-          results += alphabetArray[newCharIndex];
-        }
-        // console.log(results);
+//         } else {
+//           results += alphabetArray[newCharIndex];
+//         }
+//         // console.log(results);
        
 
         /* 
@@ -114,7 +115,6 @@ const caesarModule = (function () {
        take length of alphabet in example (26 - shift aka 3) this gives us 23 and that should be our letter
   
         */
-      }
     }
     return results;
   }
